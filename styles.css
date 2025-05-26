@@ -1,19 +1,163 @@
-/* charity: water Brand Colors & Fonts
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+}
 
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
+.logo {
+  display: flex;
+  align-items: center;
+}
 
-Fonts:
-- Proxima Nova
-- Avenir
+.logo img {
+  height: 30px;
+  margin-right: 10px;
+}
 
-*/
+.logo span {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.hero {
+  position: relative;
+  background: url("img/cw_Selects_16x9_24.jpg") no-repeat right center;
+  background-size: cover;
+  padding: 2rem;
+  min-height: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Add a yellow strip on the left side of the hero section, pushed further left */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px; /* Push the yellow strip 20px further to the left */
+  width: 40px; /* Adjust width for the yellow strip */
+  height: 100%;
+  background: #F4C95D;
+  z-index: 1;
+  border-radius: 10px 0 0 10px;
+}
+
+.hero-text {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 500px;
+  background: rgba(0,0,0,0.3); /* Slightly darker for readability */
+  border-radius: 12px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Remove the absolutely positioned hero-image, since the image is now a background */
+.hero-image {
+  display: none;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 320px;
+    padding: 1rem;
+    background-position: center center;
+  }
+  .hero-text {
+    max-width: 100%;
+    padding: 1rem;
+    background: rgba(0,0,0,0.35);
+    margin-bottom: 1rem;
+  }
+  .hero::before {
+    left: -10px; /* Adjust yellow strip for smaller screens */
+    width: 30px;
+    border-radius: 8px 0 0 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-right: 0;
+  }
+  .logo img {
+    height: 24px;
+    margin-bottom: 8px;
+  }
+  .hero {
+    padding: 0.5rem;
+    min-height: 220px;
+  }
+  .hero-text {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+  .hero::before {
+    left: -6px;
+    width: 18px;
+    border-radius: 6px 0 0 6px;
+  }
+}
